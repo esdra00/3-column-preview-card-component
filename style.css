@@ -2,10 +2,15 @@
 	--brightOrange: hsl(31, 77%, 52%);
 	--darkCyan: hsl(184, 100%, 22%);
 	--veryDarkCyan: hsl(179, 100%, 13%);
-	--transparentWhite-paragraphs: hsla(0, 0%, 100%, 0.75);
-	--veryLightGray-background-headings-buttons: hsl(0, 0%, 95%);
-	--bigShouldersDisplay: "Big Shoulders Display", cursive;
-	--lexendDeca: "Lexend Deca", sans-serif;
+	--transparentWhite: hsla(0, 0%, 100%, 0.75); /* paragraphs */
+	--veryLightGray: hsl(0, 0%, 95%); /* background, heading, buttons */
+
+	--ff-heading: "Big Shoulders Display", cursive;
+	--ff-body: "Lexend Deca", sans-serif;
+
+	font-size: 15px;
+	font-weight: 400;
+	font-family: var(--ff-body);
 }
 * {
 	box-sizing: border-box;
@@ -15,20 +20,18 @@
 body {
 	min-height: 100vh;
 	width: 100vw;
-	background-color: var(--veryLightGray-background-headings-buttons);
-	position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	line-height: 1.5;
+	background-color: var(--veryLightGray);
 }
 .card {
-	width: 70%;
-	/* position: absolute;
-	margin: auto;
-	inset: 0; */
+	width: 75vw;
 	display: flex;
-	border-radius: 15px;
+	border-radius: 10px;
+	overflow: hidden;
 }
 .cl {
 	flex: calc(100 / 3);
@@ -55,48 +58,68 @@ body {
 #cl-3 .cl-cta {
 	color: var(--veryDarkCyan);
 }
+
 .cl-title {
-	font-family: var(--bigShouldersDisplay);
-	font-weight: 700;
-	font-size: 20px;
-	color: var(--veryLightGray-background-headings-buttons);
-	text-transform: uppercase;
 	margin: 35px 0;
+	text-transform: uppercase;
+	color: var(--veryLightGray);
+	font-weight: 700;
+	font-size: 1.4rem;
+	font-family: var(--ff-heading);
 }
+
 .cl-desc {
-	font-family: var(--lexendDeca);
-	font-weight: 400;
-	font-size: 15px;
-	color: var(--transparentWhite-paragraphs);
+	color: var(--transparentWhite);
 }
+
 .cl-cta {
 	padding: 15px;
 	border-radius: 25px;
-	border: 1px solid var(--veryLightGray-background-headings-buttons);
-	background-color: var(--veryLightGray-background-headings-buttons);
-	font-family: var(--lexendDeca);
-	font-family: var(--lexendDeca);
-	font-weight: 400;
-	font-size: 15px;
+	border: 2.5px solid var(--veryLightGray);
+	background-color: var(--veryLightGray);
 	margin-top: 75px;
 }
+
 #cl-1 .cl-cta:hover,
 #cl-2 .cl-cta:hover,
 #cl-3 .cl-cta:hover {
 	background-color: transparent;
-	color: var(--veryLightGray-background-headings-buttons);
+	color: var(--veryLightGray);
 }
+
 .attribution {
 	font-size: 11px;
 	text-align: center;
 }
+
 .attribution a {
 	color: hsl(228, 45%, 44%);
 }
-@media screen and (max-width: 900px) {
+
+@media (max-width: 424.999px) {
 	.card {
-		margin: 100px auto 100px;
-		width: 80%;
+		width: 85%;
+	}
+	.cl {
+		padding: 30px;
+	}
+	.cl-title {
+		margin: 20px 0;
+	}
+	.cl-cta {
+		margin-top: 35px;
+	}
+}
+
+@media (min-width: 425px) and (max-width: 1024px) {
+	.card {
+		width: 60vw;
+	}
+}
+
+@media (max-width: 1024px) {
+	.card {
 		flex-direction: column;
+		margin: 100px auto 100px;
 	}
 }
